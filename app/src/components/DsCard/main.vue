@@ -42,9 +42,10 @@ export default {
     align-items: center;
     width: 300px;
     height: 400px;
+    padding: 10px 20px 40px;
     color: #fbfafb;
     background-color: @color;
-    padding: 10px 20px 40px;
+    border: 1px solid #000;
     box-sizing: border-box;
 
     &:hover {
