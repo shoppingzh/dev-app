@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import '@/plugins/antd'
+import '@/plugins/ds-ui'
 
 import '@/styles/index.less'
 
