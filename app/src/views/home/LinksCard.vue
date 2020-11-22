@@ -1,5 +1,5 @@
 <template>
-  <a-card hoverable title="优秀文章">
+  <a-card hoverable title="优秀文章" class="links-card">
     <template #default>
       <a-row>
         <a-col :xs="24" :md="16" :lg="14" class="links">
@@ -20,7 +20,7 @@
             @click="handleShowMore">更多</a-button>
         </a-col>
         <a-col :xs="24" :md="8" :lg="10">
-          <img :src="img" class="animate__bounceInUp animate__animated">
+          <img :src="img" class="animate__fadeInUp animate__animated">
         </a-col>
       </a-row>
       <a-modal v-model="modal.more" width="800px" :footer="null" title="所有文章">
@@ -65,6 +65,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .links-card {
+    overflow: hidden;
+  }
   .link-item {
     margin-bottom: 8px;
   }
