@@ -41,14 +41,19 @@ export default {
     }
   },
   mounted() {
-    const height = this.$el.offsetHeight
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', this.handleWindowScroll, false)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleWindowScroll)
+  },
+  methods: {
+    handleWindowScroll() {
+      const height = this.$el.offsetHeight
       const offset = window.pageYOffset / 5
       const ratio = (offset - height) / height
       this.alpha = ratio > 1 ? .95 : ratio
-    }, false)
-  },
-  beforeDestroy() {}
+    }
+  }
 }
 </script>
 
