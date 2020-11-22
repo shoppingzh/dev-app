@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import '@/plugins/antd'
 import '@/plugins/ds-ui'
+import '@/plugins/animation'
 
 import '@/styles/index.less'
 
