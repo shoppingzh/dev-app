@@ -27,5 +27,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+  @import "@/styles/var.less";
+  .page-container {
+    background-color: @background-color-system;
+    @media screen and (min-width: 1400px) {
+      padding: 30px 12.5%;
+    }
+  }
 </style>
