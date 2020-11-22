@@ -20,7 +20,7 @@
             @click="handleShowMore">更多</a-button>
         </a-col>
         <a-col :xs="24" :md="8" :lg="10">
-          <img :src="img" class="animate__fadeInUp animate__animated">
+          <img :src="img" class="animate__bounceInUp animate__animated">
         </a-col>
       </a-row>
       <a-modal v-model="modal.more" width="800px" :footer="null" title="所有文章">
