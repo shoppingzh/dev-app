@@ -5,22 +5,15 @@
         <ds-swiper :options="swiperOptions">
           <ds-swiper-item
             v-for="(page, index) in pages"
-            :key="index">
-            <a-row :gutter="[20, 20]">
-              <a-col v-for="(util, index2) in page" :key="index2" :span="4">
-                <a-card>
-                  <img
-                    slot="cover"
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />  
-                </a-card>
+            :key="index"
+            style="padding-bottom: 50px;">
+            <a-row :gutter="[50, 20]">
+              <a-col v-for="(util, index2) in page" :key="index2" :xs="12" :sm="8" :xl="6" :xxl="6">
+                <util-card :util="util" />
               </a-col>
             </a-row>
           </ds-swiper-item>
           <div slot="pagination" class="swiper-pagination"></div>
-          <!-- <span slot="nav-prev" class="swiper-button-prev"></span>
-          <span slot="nav-next" class="swiper-button-next"></span> -->
         </ds-swiper>
       </template>
     </a-card>
@@ -28,24 +21,26 @@
 </template>
 
 <script>
+import utils from '@/data/utils'
+import UtilCard from './components/UtilCard'
+
 export default {
+  components: {
+    UtilCard
+  },
   data() {
     this.swiperOptions = {
       pagination: {
         el: '.swiper-pagination',
         clickable: true
       },
-      // navigation: {
-      //   prevEl: '.swiper-button-prev',
-      //   nextEl: '.swiper-button-next'
-      // },
       autoplay: {
-        delay: 3000
+        delay: 5000
       }
     }
     return {
-      pageSize: 5,
-      utils: []
+      pageSize: 8,
+      utils: [...utils, ...utils, ...utils, ...utils, ...utils, ...utils]
     }
   },
   computed: {
@@ -59,9 +54,10 @@ export default {
   },
   created() {
     for (let i = 0; i < 50; i++) {
-      this.utils.push({
-        title: '工具'
-      })
+      // this.utils.push({
+      //   title: '工具',
+      //   image: 'https://img2.mukewang.com/szimg/5c18d2d8000141c506000338-360-202.jpg'
+      // })
     }
   }
 }

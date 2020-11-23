@@ -22,8 +22,10 @@ export default {
   .ds-hovered-image {
     transition: all .5s ease-in-out;
     cursor: pointer;
+    opacity: .95;
     &:hover {
       box-shadow: 0 0 15px 2px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .05);
+      opacity: 1;
     }
   }
 </style>

@@ -8,10 +8,10 @@
     </div>
     <a-row :gutter="[0, 20]" class="page-container">
       <a-col>
-        <links-card />
+        <links />
       </a-col>
       <a-col>
-        <util-card />
+        <utils />
       </a-col>
     </a-row>
   </div>
@@ -19,14 +19,14 @@
 
 <script>
 import Navbar from './components/Navbar'
-import LinksCard from './LinksCard'
-import UtilCard from './UtilCard'
+import Links from './Links'
+import Utils from './Utils'
 
 export default {
   components: {
     Navbar,
-    LinksCard,
-    UtilCard
+    Links,
+    Utils
   },
   data() {
     return {
@@ -54,6 +54,10 @@ export default {
       height: 80%;
       width: auto;
       transform: translate(-50%, -40%);
+      @media (max-width: 700px) {
+        width: 90%;
+        height: auto;
+      }
     }
   }
 </style>
