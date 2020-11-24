@@ -5,16 +5,19 @@
       <a class="navbar__logo-text">前端开发者平台</a>
     </a>
     <div class="navbar__right">
-      <a class="navbar__menu-item">首页</a>
-      <a class="navbar__menu-item">主项目入口</a>
-      <a class="navbar__menu-item">文档中心</a>
-      <a class="navbar__menu-item">公共组件中心</a>
+      <a
+        v-for="menu in menus"
+        :key="menu"
+        :href="menu.url"
+        target="__blank"
+        class="navbar__menu-item">{{ menu.title }}</a>
     </div>
   </div>
 </template>
 
 <script>
 import logo from '@/assets/images/logo.png'
+import menus from '@/data/menus'
 
 export default {
   props: {
@@ -26,7 +29,8 @@ export default {
   data() {
     return {
       alpha: 0,
-      logo
+      logo,
+      menus
     }
   },
   computed: {
