@@ -1,14 +1,22 @@
 const state = {
-  name: '前端开发者平台'
+  name: '前端开发者平台',
+  theme: 'light'
 }
 
 const getters = {
-  name: state => state.name
+  name: state => state.name,
+  theme: state => state.theme
 }
 
-const mutations = {}
+const mutations = {
+  TOGGLE_DARK_THEME(state) {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark'
+  }
+}
 
-const actions = {}
+const actions = {
+
+}
 
 
 export default {

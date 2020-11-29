@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-card title="工具中心" hoverable>
+    <a-card title="工具中心">
       <template #default>
         <ds-swiper :options="swiperOptions">
           <ds-swiper-item

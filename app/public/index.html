@@ -8,10 +8,18 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <link rel="stylesheet/less" type="text/css" href="theme.less" />
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script>
+      window.less = {
+        async: false,
+        env: 'production'
+      }
+    </script>
     <div id="app"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/less.js/2.7.2/less.min.js"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>

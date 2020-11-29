@@ -6,11 +6,14 @@
     </a>
     <div class="navbar__right">
       <a
-        v-for="menu in menus"
-        :key="menu"
+        v-for="(menu, index) in menus"
+        :key="index"
         :href="menu.url"
         target="__blank"
         class="navbar__menu-item">{{ menu.title }}</a>
+      <div class="navbar__menu-item">
+        <a-switch v-model="dark" />
+      </div>
     </div>
   </div>
 </template>
@@ -33,14 +36,35 @@ export default {
       menus
     }
   },
+  watch: {
+    dark(newVal) {
+      if (newVal) {
+        window.less.modifyVars({
+          '@component-background': '#181818',
+          '@border-color-base': '#333',
+          '@heading-color': '#fff',
+          '@border-color-split': '#333'
+        })
+      }
+    }
+  },
   computed: {
     backgroundColor() {
       return `rgba(255, 255, 255, ${this.alpha})`
     },
     styles() {
+      const rgb = this.dark ? '50, 50, 50' : '255, 255, 255'
       return {
-        backgroundColor: `rgba(255, 255, 255, ${this.alpha})`,
+        backgroundColor: `rgba(${rgb}, ${this.alpha})`,
         boxShadow: `0 5px 5px 2px rgba(0, 0, 0, ${this.alpha / 10})`
+      }
+    },
+    dark: {
+      get() {
+        return this.$store.state.app.theme === 'dark'
+      },
+      set() {
+        this.$store.commit('app/TOGGLE_DARK_THEME')
       }
     }
   },
@@ -64,7 +88,7 @@ export default {
 <style lang="less" scoped>
   .navbar {
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     right: 0;
@@ -72,6 +96,7 @@ export default {
     line-height: 50px;
     padding: 0 10px;
     overflow: hidden;
+    transition: background .5s;
     &:after {
       content: "";
       display: table;
@@ -91,7 +116,7 @@ export default {
         font-family: "SF Pro Text","Helvetica Neue","Helvetica","Arial",sans-serif;
         font-size: 20px;
         font-weight: 600;
-        color: #282828;
+        color: var(--text-color-primary);
         vertical-align: top;
       }
       img {
@@ -108,10 +133,10 @@ export default {
       font-size: 14px;
       padding: 0 12px;
       cursor: pointer;
-      color: #333;
+      color: var(--text-color-secondary);
       transition: all .3s;
       &:hover {
-        color: #000;
+        color: var(--text-color-primary);
         font-weight: bold;
       }
     }

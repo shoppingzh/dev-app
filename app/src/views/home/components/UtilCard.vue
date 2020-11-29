@@ -34,10 +34,11 @@ export default {
     height: 300px;
     position: relative;
     overflow: hidden;
-    background-color: #fff;
-    border: 1px solid #eee;
+    background-color: var(--background-color-system);
+    border: 1px solid var(--border-color-light);
     border-radius: 5px;
     transition: all .5s;
+    color: var(--text-color-secondary);
     &:hover {
       box-shadow: 0 0 5px 3px rgba(100, 100, 100, .03), 2px 2px 2px rgba(100, 100, 100, .05);
     }

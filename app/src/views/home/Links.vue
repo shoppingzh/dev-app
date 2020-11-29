@@ -1,5 +1,5 @@
 <template>
-  <a-card hoverable title="优秀文章" class="links-card">
+  <a-card title="优秀文章" class="links-card">
     <template #default>
       <a-row>
         <a-col :xs="24" :md="16" :lg="14" class="links">

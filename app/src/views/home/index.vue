@@ -3,7 +3,7 @@
     <Navbar />
     <div class="top">
       <transition name="fade">
-        <ds-hovered-image src="https://cdn.dribbble.com/users/1363206/screenshots/7374566/media/a3a2cb3e0483356941e04824615b1f9d.jpg" />
+        <ds-hovered-image :src="bgImage" />
       </transition>
     </div>
     <a-row :gutter="[0, 20]" class="page-container">
@@ -21,6 +21,7 @@
 import Navbar from './components/Navbar'
 import Links from './Links'
 import Utils from './Utils'
+import bgImage from '@/assets/images/bg.png'
 
 export default {
   components: {
@@ -30,15 +31,16 @@ export default {
   },
   data() {
     return {
+      bgImage
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-  @import "@/styles/var.less";
   .page-container {
-    background-color: @background-color-system;
+    background-color: var(--background-color-placeholder);
+    transition: background .5s;
     @media screen and (min-width: 1400px) {
       padding: 30px 12.5%;
     }
@@ -47,6 +49,9 @@ export default {
     position: relative;
     height: 65vh;
     background-color: #6cd3cf;
+    [data-theme="dark"] & {
+      background-color: var(--background-color-system);
+    }
     img {
       position: absolute;
       top: 40%;
