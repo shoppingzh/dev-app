@@ -52,6 +52,7 @@ export default {
     [data-theme="dark"] & {
       background-color: var(--background-color-system);
     }
+    transition: background .5s;
     img {
       position: absolute;
       top: 40%;

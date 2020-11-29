@@ -118,6 +118,7 @@ export default {
         font-weight: 600;
         color: var(--text-color-primary);
         vertical-align: top;
+        transition: color .5s;
       }
       img {
         height: 100%;
