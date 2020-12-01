@@ -7,6 +7,8 @@ const options = {
   varFile: path.join(__dirname, './src/plugins/antd/var.less'),
   outputFilePath: path.join(__dirname, './public/theme.less'),
   themeVariables: [
+    '@black',
+    '@white',
     '@component-background',
     '@heading-color',
     '@border-color-base',

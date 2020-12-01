@@ -6,16 +6,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { toggle } from '@/utils/theme'
+
 export default {
   computed: {
     ...mapGetters({
       theme: 'app/theme'
     })
   },
-  watch: {
-    theme(newVal) {
-      document.body.setAttribute('data-theme', newVal)
-    }
+  created() {
+    document.body.setAttribute('data-theme', this.theme)
+    toggle(this.theme)
   }
 }
 </script>

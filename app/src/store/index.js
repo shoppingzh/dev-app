@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from "vuex-persistedstate"
+
 import app from './modules/app'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
   },
   mutations: {
@@ -13,5 +15,8 @@ export default new Vuex.Store({
   },
   modules: {
     app
-  }
+  },
+  plugins: [createPersistedState()]
 })
+
+export default store

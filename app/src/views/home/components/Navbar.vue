@@ -12,7 +12,7 @@
         target="__blank"
         class="navbar__menu-item">{{ menu.title }}</a>
       <div class="navbar__menu-item">
-        <a-switch v-model="dark" />
+        <a-switch v-model="dark" :loading="loading.toggleTheme" />
       </div>
     </div>
   </div>
@@ -33,18 +33,9 @@ export default {
     return {
       alpha: 0,
       logo,
-      menus
-    }
-  },
-  watch: {
-    dark(newVal) {
-      if (newVal) {
-        window.less.modifyVars({
-          '@component-background': '#181818',
-          '@border-color-base': '#333',
-          '@heading-color': '#fff',
-          '@border-color-split': '#333'
-        })
+      menus,
+      loading: {
+        toggleTheme: false
       }
     }
   },
@@ -64,7 +55,10 @@ export default {
         return this.$store.state.app.theme === 'dark'
       },
       set() {
-        this.$store.commit('app/TOGGLE_DARK_THEME')
+        this.loading.toggleTheme = true
+        this.$store.dispatch('app/toggleDarkTheme').finally(() => {
+          this.loading.toggleTheme = false
+        })
       }
     }
   },

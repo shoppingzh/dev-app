@@ -63,6 +63,7 @@ export default {
     &__title {
       margin-bottom: 12px;
       font-size: 16px;
+      color: var(--text-color-primary);
     }
     &__icon {
       text-align: right;

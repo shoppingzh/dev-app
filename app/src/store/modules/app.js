@@ -1,3 +1,5 @@
+import { toggle } from '@/utils/theme'
+
 const state = {
   name: '前端开发者平台',
   theme: 'light'
@@ -9,13 +11,20 @@ const getters = {
 }
 
 const mutations = {
-  TOGGLE_DARK_THEME(state) {
-    state.theme = state.theme === 'dark' ? 'light' : 'dark'
+  SET_THEME(state, theme) {
+    state.theme = theme
   }
 }
 
 const actions = {
-
+  toggleDarkTheme({ state, commit }) {
+    const theme = state.theme === 'dark' ? 'light' : 'dark'
+    return new Promise((resolve) => {
+      toggle(theme)
+      commit('SET_THEME', theme)
+      resolve()
+    })
+  }
 }
 
 
